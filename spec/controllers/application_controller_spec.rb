@@ -41,7 +41,7 @@ RSpec.describe ApplicationController, type: :controller do
 
       it "assigns all pinned pages" do
         puts "All pages: #{Page.pluck(:id, :title).inspect}"
-        puts "All settings: #{Setting.inspect}"
+        puts "All settings: #{Setting.all.inspect}"
         get :index
 
         puts "assigns[:pinned_to_site_top] = #{assigns[:pinned_to_site_top].inspect}"

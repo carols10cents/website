@@ -16,6 +16,10 @@ class ApplicationController < ActionController::Base
     pinned_to_footer_top_page_id    = setting(:pinned_to_footer_top_page_id)
     pinned_to_footer_bottom_page_id = setting(:pinned_to_footer_bottom_page_id)
 
+    puts "pinned_to_site_top_page_id = #{pinned_to_site_top_page_id}"
+    puts "pinned_to_footer_top_page_id = #{pinned_to_footer_top_page_id}"
+    puts "pinned_to_footer_bottom_page_id = #{pinned_to_footer_bottom_page_id}"
+
     if pinned_to_site_top_page_id.present?
       @pinned_to_site_top = Page.find(pinned_to_site_top_page_id)
     end
