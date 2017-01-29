@@ -34,8 +34,10 @@ RSpec.describe ApplicationController, type: :controller do
       let(:footer_bottom) { Page.create(title: "footer bottom") }
 
       before do
-        puts "site_top = #{site_top}"
-        Setting.create!(name: "pinned to site top page id", saved_content: site_top.id)
+        puts "site_top = #{site_top.inspect}"
+        puts "site_top.id = #{site_top.id}"
+        s = Setting.create!(name: "pinned to site top page id", saved_content: site_top.id)
+        puts "s = #{s.inspect}"
         Setting.create!(name: "pinned to footer top page id", saved_content: footer_top.id)
         Setting.create!(name: "pinned to footer bottom page id", saved_content: footer_bottom.id)
       end
