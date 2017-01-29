@@ -40,7 +40,17 @@ RSpec.describe ApplicationController, type: :controller do
       end
 
       it "assigns all pinned pages" do
+        puts "All pages: #{Page.pluck(:id, :title).inspect}"
+        puts "All settings: #{Setting.pluck(:name, :saved_content, :slug)}"
         get :index
+
+        puts "assigns[:pinned_to_site_top] = #{assigns[:pinned_to_site_top].inspect}"
+
+        puts "assigns[:pinned_to_footer_top] = #{assigns[:pinned_to_footer_top].inspect}"
+
+        puts "assigns[:pinned_to_footer_bottom] = #{assigns[:pinned_to_footer_bottom].inspect}"
+
+        puts "assigns = #{assigns.inspect}"
 
         expect(assigns[:pinned_to_site_top]).to eq(site_top)
         expect(assigns[:pinned_to_footer_top]).to eq(footer_top)
