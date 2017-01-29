@@ -28,7 +28,6 @@ export PATH="$RACK_ROOT/bin:$PATH"
 
 echo "==> Setting up DB..."
 bin/rails db:create
-bin/rails db:migrate
 
 # run tests
 echo "Running tests ..."
