@@ -29,9 +29,9 @@ RSpec.describe ApplicationController, type: :controller do
 
   describe "#set_pinned_pages" do
     context "with all pinned" do
-      let!(:site_top) { Page.create(title: "site top") }
-      let!(:footer_top) { Page.create(title: "footer top") }
-      let!(:footer_bottom) { Page.create(title: "footer bottom") }
+      let(:site_top) { Page.create(title: "site top") }
+      let(:footer_top) { Page.create(title: "footer top") }
+      let(:footer_bottom) { Page.create(title: "footer bottom") }
 
       before do
         Setting.create!(name: "pinned to site top page id", saved_content: site_top.id)
@@ -41,7 +41,7 @@ RSpec.describe ApplicationController, type: :controller do
 
       it "assigns all pinned pages" do
         puts "All pages: #{Page.pluck(:id, :title).inspect}"
-        puts "All settings: #{Setting.pluck(:name, :saved_content, :slug)}"
+        puts "All settings: #{Setting.inspect}"
         get :index
 
         puts "assigns[:pinned_to_site_top] = #{assigns[:pinned_to_site_top].inspect}"
